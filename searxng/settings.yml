@@ -13,7 +13,7 @@ search:
     json: true # Unlocks the JSON format so it won't throw an API error
   
   # LOWERED SUSPENSION SETTINGS
-  # Prevents permanent locks on Render by forcing engines to unlock quickly
+  # Keeps engines from getting permanently locked out on Render
   suspension_time: 600       # Checks if an engine works again after 10 minutes
   max_suspension_time: 1800  # Maximum block time limit of 30 minutes
 
@@ -25,31 +25,23 @@ server:
 ui:
   static_use_hash: true
 
-# SEARCH ENGINES CONFIGURATION
+# FIXED SEARCH ENGINES FOR RENDER
 engines:
   - name: google
     engine: google
     shortcut: go
     disabled: false
 
+  # Uses a lightweight layout that rarely triggers rate-limit blocks
   - name: duckduckgo
-    engine: duckduckgo
+    engine: duckduckgo_lite
     shortcut: ddg
     disabled: false
 
-  # FIXED BING SETTINGS
-  # Drops the scraper fingerprints to bypass Render IP blocks and fix bad results
-  - name: bing
-    engine: bing
-    shortcut: bi
-    disabled: false
-    send_accept_language_header: true
-    cookies: ""
-
-  # RELIABLE WEB FALLBACKS
-  - name: brave
-    engine: brave
-    shortcut: br
+  # Replaces Brave directly by using Brave's index through a stable gateway
+  - name: resulthunter
+    engine: resulthunter
+    shortcut: rh
     disabled: false
 
   - name: qwant
@@ -61,4 +53,3 @@ engines:
     engine: mojeek
     shortcut: mj
     disabled: false
-
