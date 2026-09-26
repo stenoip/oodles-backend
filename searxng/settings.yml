@@ -11,12 +11,54 @@ search:
     - csv
   api:
     json: true # Unlocks the JSON format so it won't throw an API error
+  
+  # LOWERED SUSPENSION SETTINGS
+  # Prevents permanent locks on Render by forcing engines to unlock quickly
+  suspension_time: 600       # Checks if an engine works again after 10 minutes
+  max_suspension_time: 1800  # Maximum block time limit of 30 minutes
 
 server:
-
   secret_key: "${SEARXNG_SECRET_KEY}"
   limiter: false 
   image_proxy: true
 
 ui:
   static_use_hash: true
+
+# SEARCH ENGINES CONFIGURATION
+engines:
+  - name: google
+    engine: google
+    shortcut: go
+    disabled: false
+
+  - name: duckduckgo
+    engine: duckduckgo
+    shortcut: ddg
+    disabled: false
+
+  # FIXED BING SETTINGS
+  # Drops the scraper fingerprints to bypass Render IP blocks and fix bad results
+  - name: bing
+    engine: bing
+    shortcut: bi
+    disabled: false
+    send_accept_language_header: true
+    cookies: ""
+
+  # RELIABLE WEB FALLBACKS
+  - name: brave
+    engine: brave
+    shortcut: br
+    disabled: false
+
+  - name: qwant
+    engine: qwant
+    shortcut: qw
+    disabled: false
+
+  - name: mojeek
+    engine: mojeek
+    shortcut: mj
+    disabled: false
+
