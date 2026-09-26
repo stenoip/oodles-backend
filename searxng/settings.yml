@@ -53,3 +53,18 @@ engines:
     engine: mojeek
     shortcut: mj
     disabled: false
+
+  - name: yandex
+    engine: yandex
+    shortcut: yd
+    disabled: false
+
+  - name: tusksearch
+    engine: tusksearch
+    shortcut: ts
+    disabled: false
+
+  - name: privacywall
+    engine: privacywall
+    shortcut: pw
+    disabled: false
