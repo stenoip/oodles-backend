@@ -1,19 +1,22 @@
-# see https://docs.searxng.org/admin/settings/settings.html#settings-use-default-settings
+# see https://searxng.org
 use_default_settings: true
+
 general:
-  debug: true
+  debug: false # Set to false for cleaner production logs on Render
+
 search:
   formats:
     - html
     - json
     - csv
+  api:
+    json: true # Unlocks the JSON format so it won't throw an API error
+
 server:
-  # base_url is defined in the SEARXNG_BASE_URL environment variable
-  secret_key: "my-custom-secret-key-from-env"
+
+  secret_key: "${SEARXNG_SECRET_KEY}"
   limiter: false 
   image_proxy: true
+
 ui:
   static_use_hash: true
-# Redis configuration
-# redis:
-#   url: ${REDIS_URL}
